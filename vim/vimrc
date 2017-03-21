@@ -1,0 +1,53 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+"=====================================================
+" Vundle settings
+"=====================================================
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'		" let Vundle manage Vundle, required
+Plugin 'scrooloose/nerdtree' 	    	" Project and file navigation
+Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
+Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
+Plugin 'pangloss/vim-javascript'	" JavaScript Mode
+Plugin 'ctrlpvim/ctrlp.vim'
+
+call vundle#end()            		" required
+filetype on
+filetype plugin on
+filetype plugin indent on
+
+" General settings
+set tabstop=4
+set shiftwidth=4
+let mapleader = ","
+" Disable auto comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+if has('multi_byte')
+    if version >= 700
+        " set listchars=tab:»\ ,trail:·,eol:¶,extends:→,precedes:←,nbsp:×
+        set listchars=tab:▸\ ,eol:¬ " TextMate
+    else
+        set listchars=tab:»\ ,trail:·,eol:¶,extends:>,precedes:<,nbsp:_
+    endif
+endif
+nmap <leader>l :set list!<CR>
+
+
+" NerdTree settings
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$']
+
+" CtrlP settings
+nnoremap <F3> :CtrlPBuffer<CR> " browse a list of the currently opened buffers
+
+" Python Mode
+let g:pymode=1
+let g:pymode_folding=0
+let g:pymode_options_colorcolumn=0
+let g:pymode_python='python'
+let g:pymode_rope=0
+" let g:pymode_virtualenv_path='/data/qa/ltbot/venv'
