@@ -14,6 +14,8 @@ Plugin 'Shougo/unite.vim'               " Navigation between buffers and files
 Plugin 'klen/python-mode'	        " Python mode (docs, refactor, lints, highlighting, run and ipdb and more)
 Plugin 'pangloss/vim-javascript'	" JavaScript Mode
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()            		" required
 filetype on
@@ -51,3 +53,6 @@ let g:pymode_options_colorcolumn=0
 let g:pymode_python='python'
 let g:pymode_rope=0
 " let g:pymode_virtualenv_path='/data/qa/ltbot/venv'
+
+" Vim Markdown Options
+let g:vim_markdown_folding_disabled = 1
