@@ -26,6 +26,10 @@ filetype plugin indent on
 set tabstop=4
 set shiftwidth=4
 let mapleader = ","
+
+" Highlights line when it exceeds 80 columns
+au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+
 " Disable auto comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 if has('multi_byte')
